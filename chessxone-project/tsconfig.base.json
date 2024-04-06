@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@chessxone-project/core": ["libs/core/src/index.ts"],
+      "@chessxone-project/ui": ["libs/ui/src/index.ts"],
+      "@chessxone-project/ui/server": ["libs/ui/src/server.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

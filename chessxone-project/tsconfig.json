@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@chessxone-project/ui": ["libs/ui/src/index.ts"],
+      "@chessxone-project/ui/*": ["libs/ui/src/*"]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.home_container{
+padding: 4rem;
+color: var(--light-color);
+}
+.home_container h3{
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}
+.waiting_section{
+    display: flex;
+    margin: 3rem 0;
+}
+.waiting_section>div{
+    margin: 2rem;
+    padding: 10px;
+}
+.waiting_section>div:nth-child(2){
+    width: 20%;
+    min-width: 250px;
+}
+.waiting_section>div:first-child{
+    width: 80%;
+    background-color: var(--dark-color);
+    min-width: 900px;
+}

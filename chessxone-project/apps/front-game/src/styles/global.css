@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+p,
+pre {
+  margin: 0;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+}
+h1,
+h2 {
+  font-size: 3rem;
+  font-weight: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+}
+svg {
+  display: block;
+  vertical-align: middle;
+  shape-rendering: auto;
+  text-rendering: optimizeLegibility;
+}
+pre {
+  background-color: rgba(55, 65, 81, 1);
+  border-radius: 0.25rem;
+  color: rgba(229, 231, 235, 1);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+  overflow: scroll;
+  padding: 0.5rem 0.75rem;
+}
+@font-face {
+  font-family: "karmasuture";
+  src: local("karmasuture"),
+   url("./fonts/karmasuture.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "minecraft";
+    src: local("minecraft"),
+     url("./fonts/MinecraftTen-VGORe.ttf") format("truetype");
+  }
+  
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: #c3c2c3;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-dark-color);
+  border-radius: 20px;
+  border: 3px solid #c3c2c3;
+}
+  *{
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-dark-color) #c3c2c3;
+  }
+:root{
+--dark-color: #16161d;
+--light-color: #c3c2c3;
+--secondary-dark-color: #18181d;
+--purple: #4682b4;
+--secondary-color-square: #232a36;
+--primary-color-square: #5e727b;
+--third-color: #282633;
+overflow-x: hidden;
+--box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+body {
+margin: 0;
+font-family: 'karmasuture' ;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+background-color: var(--secondary-dark-color);
+}
+button{
+cursor: pointer;
+width: 100%;
+padding: 12px;
+color: white;
+border: none;
+border-radius: 5px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+background-color: var(--dark-color);
+font-family: 'karmasuture' ;
+}
+button:active{
+  outline:  2px solid;
+}
+button:hover{
+scale: 1.02;
+}
+button:disabled{
+  opacity: 0.8;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+textarea,
+input{
+width: 100%;
+box-sizing: border-box;
+background-color: var(--secondary-dark-color);
+color: white;
+padding: 10px 15px;
+border: 1px solid var(--purple);
+margin-bottom: 5px;
+outline: none;
+opacity: 0.9;
+}
+li{
+list-style-type: none;
+}
+ul{
+padding: 0;
+margin: 0;
+}
+.icon{
+width: 18px;
+height: 18px;
+}
+
+@layer base {
+  :root {
+    --background: var(--secondary-dark-color);
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    
+    --card: var(--dark-color);
+    --card-foreground: var(--light-color);
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}

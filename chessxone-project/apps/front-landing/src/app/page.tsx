@@ -1,3 +1,4 @@
+import { core } from '@chessxone-project/core';
 import styles from './page.module.css';
 
 export default function Index() {
@@ -12,7 +13,7 @@ export default function Index() {
         <div className="container">
           <div id="welcome">
             <h1>
-              <span> Hello there, </span>
+              <span> Hello there, {core()} </span>
               Welcome front-landing 👋
             </h1>
           </div>
