@@ -1,21 +1,22 @@
-'use client';
+'use client'
+
 import React from 'react';
 
 import styles from './home.module.css';
-import SuggestedPlayer from './helpers/suggested-player';
-import HistoricalGame from './helpers/historical';
-import SearchForPlayer from './helpers/search';
+import CreateGame from './helpers/create-game';
+// import SuggestedPlayer from './helpers/suggested-player';
+// import HistoricalGame from './helpers/historical';
+// import SearchForPlayer from './helpers/search-for-player';
 
 type Props = {};
 
 const HomeComponent = (props: Props) => {
   return (
     <div className={styles.home_container}>
-      <SuggestedPlayer />
-      <section className={styles.waiting_section}>
-        <HistoricalGame/>
-        <SearchForPlayer />
-      </section>
+      {/* <SuggestedPlayer />
+      <HistoricalGame />
+      <SearchForPlayer /> */}
+      <CreateGame />
     </div>
   );
 };

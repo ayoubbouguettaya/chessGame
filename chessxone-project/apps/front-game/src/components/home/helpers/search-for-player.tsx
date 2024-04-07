@@ -37,9 +37,8 @@ const SearchForPlayer = (props: Props) => {
   }
 
   return (
-    <div>
+    <div className='max-w-[500px]'>
        <h3>Find a Player</h3> 
-       <p>Your Id is #676873</p>
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
@@ -58,7 +57,7 @@ const SearchForPlayer = (props: Props) => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button className='text-sky-500' type="submit">Submit</Button>
       </form>
     </Form>
     </div>

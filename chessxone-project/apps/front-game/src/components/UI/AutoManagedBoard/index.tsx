@@ -16,7 +16,7 @@ import {
 import DisplayBoard from './helpers/DisplayBoard';
 import SidePanel from './helpers/SidePanel';
 
-import styles from './automanaged-board.module.css';
+import styles from './styles.module.css';
 
 export type GameProps = {
   blackPlayer: string;
@@ -40,7 +40,6 @@ const AutoManagedBoard = ({
   const [boardState, setBoardState] = useState<Board | null>(null);
 
   const [currentMove, setCurrentMove] = useState('');
-  const [showCommentSection, setShowCommentSection] = useState(false);
   const [offsetMove, setOffsetMove] = useState(0);
 
   useEffect(() => {
@@ -96,27 +95,20 @@ const AutoManagedBoard = ({
     }
   };
 
-  const toggleComment = () => {
-    setShowCommentSection((prevS) => !prevS);
-  };
-
   if (!boardState) return <p>game not available</p>;
   return (
     <div
-      className={`${styles.board_container}`}
+      className={`${styles.container}`}
     >
       <DisplayBoard boardState={boardState} />
       <SidePanel
         blackPlayer={blackPlayer}
         context={context}
         whitePlayer={whitePlayer}
-        comments={comments}
         offsetMove={offsetMove}
         movesWithNotation={movesWithNotation}
-        toggleComment={toggleComment}
         handleNext={handleNext}
         initiaseBoard={initiaseBoard}
-        showComment={showCommentSection}
       />
     </div>
   );

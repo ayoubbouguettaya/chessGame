@@ -1,13 +1,18 @@
 import React from 'react';
 
+import styles from './layout.module.css';
 type Props = {};
 
 const Footer = (props: Props) => {
-  return <div>
-    <p className='p-3 h-[90px] text-cyan-500'>
-     made with Love and Coffee
-    </p>
-  </div>;
+  return (
+    <footer className={styles.footer}>
+      <div
+        className={`flex justify-end max-w-[1400px] m-auto`}
+      >
+        <p>Hello</p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

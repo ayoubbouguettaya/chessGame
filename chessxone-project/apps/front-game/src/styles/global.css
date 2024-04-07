@@ -30,10 +30,6 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
-pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    Liberation Mono, Courier New, monospace;
-}
 svg {
   display: block;
   vertical-align: middle;
@@ -59,6 +55,12 @@ pre {
     src: local("minecraft"),
      url("./fonts/MinecraftTen-VGORe.ttf") format("truetype");
   }
+  @font-face {
+    font-family: "rubik";
+    src: local("rubik"),
+     url("./fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+  }
+  
   
 /* Works on Chrome/Edge/Safari */
 *::-webkit-scrollbar {
@@ -89,47 +91,26 @@ overflow-x: hidden;
 }
 body {
 margin: 0;
-font-family: 'karmasuture' ;
+font-family: 'karmasuture';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 background-color: var(--secondary-dark-color);
 }
+h2,
+h3{
+  font-family: 'karmasuture';
+}
+  
 button{
 cursor: pointer;
-width: 100%;
-padding: 12px;
-color: white;
-border: none;
-border-radius: 5px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-background-color: var(--dark-color);
 font-family: 'karmasuture' ;
 }
-button:active{
-  outline:  2px solid;
-}
-button:hover{
-scale: 1.02;
-}
-button:disabled{
-  opacity: 0.8;
-}
+
 a{
   text-decoration: none;
   color: white;
 }
-textarea,
-input{
-width: 100%;
-box-sizing: border-box;
-background-color: var(--secondary-dark-color);
-color: white;
-padding: 10px 15px;
-border: 1px solid var(--purple);
-margin-bottom: 5px;
-outline: none;
-opacity: 0.9;
-}
+
 li{
 list-style-type: none;
 }

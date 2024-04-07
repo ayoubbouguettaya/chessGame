@@ -8,14 +8,14 @@ import {
   rowNotation,
 } from '@chessxone-project/core';
 
-import styles from '../automanaged-board.module.css';
+import styles from '../dump-board.module.css';
 
 export type DisplayBoardProps = {
   boardState: Board;
 };
 const DisplayBoard = ({ boardState }: DisplayBoardProps) => {
   return (
-    <>
+    <div className={styles.board_container}>
       <div className={` ${styles.vertical_notation}`}>
         {rowNotation.map((index) => (
           <span key={index}> {index}</span>
@@ -35,7 +35,7 @@ const DisplayBoard = ({ boardState }: DisplayBoardProps) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

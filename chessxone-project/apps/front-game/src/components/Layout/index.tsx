@@ -10,7 +10,7 @@ const LayoutComponent = (props: Props) => {
   return (
     <div>
       <Navbar />
-      <main className="min-h-[calc(100vh-180px)]">
+      <main className="min-h-[calc(100vh-180px)] w-full max-w-[1400px] m-auto">
       {props.children}
       </main>
       <Footer />

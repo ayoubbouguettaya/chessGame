@@ -1,6 +1,8 @@
 import React from 'react'
 import AutoManagedBoard from '../../UI/AutoManagedBoard';
 
+import styles from "../home.module.css"
+
 type Props = {}
 
 const games = [
@@ -34,10 +36,9 @@ const games = [
 
 const HistoricalGame = (props: Props) => {
   return (
-    <div>
-        <h3>HistoricalGame</h3>
+    <section className={styles.waiting_section}>      
         <AutoManagedBoard {...games[0]} />
-    </div>
+    </section>
   )
 }
 
