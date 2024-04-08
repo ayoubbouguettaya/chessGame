@@ -1,7 +1,7 @@
 import styles from '../home.module.css';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { UseFormSetValue, useForm } from 'react-hook-form';
 import {
   Button,
   Dialog,
@@ -15,7 +15,8 @@ import {
   Input,
   Label,
 } from '@chessxone-project/ui';
-import { CopyIcon } from '@radix-ui/react-icons';
+import { CheckIcon, CopyIcon } from '@radix-ui/react-icons';
+import { useEffect, useState } from 'react';
 type Props = {};
 
 const CreateGame = (props: Props) => {
@@ -65,33 +66,82 @@ const JoinGame = (props: Props) => {
       className="flex w-full  items-center gap-1"
       onSubmit={form.handleSubmit(onSubmit)}
     >
-        <div>
-      <DialogShareGame />
-        </div>
+      <div>
+        <DialogShareGame
+          setValue={form.setValue}
+          link="http://chessone.com/game/dqdnvlkqjnvks"
+        />
+      </div>
       <Input
         {...form.register('gameUrl')}
         className="w-full text-lg"
         type="url"
         placeholder="link"
       />
-      <Button className="text-lg" variant={'outline'} type="submit">
+      <Button className="text-lg" variant={'ghost'} type="submit">
         Join
       </Button>
     </form>
   );
 };
 
-export function DialogShareGame() {
+export function DialogShareGame({
+  link,
+  setValue,
+}: {
+  link: string;
+  setValue: UseFormSetValue<{
+    gameUrl: string;
+  }>;
+}) {
+  const [copyTrigged, setCopyTrigged] = useState(false);
+
+  function copyToClipboard(textToCopy: string) {
+    // navigator clipboard api needs a secure context (https)
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(textToCopy);
+    } else {
+      // text area method
+      const textArea = document.createElement('textarea');
+      textArea.value = textToCopy;
+      // make the textarea out of viewport
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      return new Promise((res, rej) => {
+        // here the magic happens
+        document.execCommand('copy') ? res(link) : rej();
+        textArea.remove();
+      });
+    }
+  }
+
+  const handleCopyLinkToClipBoard = () => {
+    copyToClipboard(link);
+    setCopyTrigged(true);
+    const timer = setTimeout(() => {
+      setCopyTrigged(false);
+      clearTimeout(timer);
+    }, 1000);
+  };
+
+  useEffect(()=> {
+    setValue("gameUrl",link)
+  },[])
+  
   return (
-    <Dialog >
+    <Dialog>
       <DialogTrigger asChild>
         <Button className="text-lg" variant={'secondary'}>
           New Game +
         </Button>
       </DialogTrigger>
-      <DialogContent className={styles.dialog} >
-        <DialogHeader className='text-sky-100'>
-          <DialogTitle className='text-2xl' >Share link</DialogTitle>
+      <DialogContent className={styles.dialog}>
+        <DialogHeader className="text-sky-100">
+          <DialogTitle className="text-2xl">Share link</DialogTitle>
           <DialogDescription>
             Anyone who has this link can enter the game.
           </DialogDescription>
@@ -103,14 +153,24 @@ export function DialogShareGame() {
             </Label>
             <Input
               id="link"
-              className='text-sky-100'
-              defaultValue="https://ui.shadcn.com/docs/installation"
+              className="text-sky-100"
+              defaultValue={link}
               readOnly
             />
           </div>
-          <Button type="submit" size="sm" className="px-3">
-            <span className="sr-only">Copy</span>
-            <CopyIcon className="h-4 w-4" />
+          <Button
+            onClick={handleCopyLinkToClipBoard}
+            size="sm"
+            className="px-3"
+          >
+            {!copyTrigged ? (
+              <>
+                <span className="sr-only">Copy</span>
+                <CopyIcon className="h-4 w-4" />
+              </>
+            ) : (
+              <CheckIcon className="h-4 w-4" />
+            )}
           </Button>
         </div>
         <DialogFooter className="sm:justify-start">
